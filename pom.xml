@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.afrozaar.wordpress</groupId>
@@ -47,37 +47,13 @@
 
     <profiles>
         <profile>
-            <id>afrozaar</id>
-            <!-- <properties> <repository.home>https://maven-repostiory.afrozaar.com/artifactory</repository.home> <deploy-release>${repository.home}/libs-release-local</deploy-release> 
-                <deploy-snapshot>${repository.home}/libs-snapshot-local</deploy-snapshot> </properties> -->
-
-            <properties>
-                <repository.home>https://maven-repository.afrozaar.com/artifactory</repository.home>
-                <release-repository>${repository.home}/public-release</release-repository>
-                <snapshot-repository>${repository.home}/public-snapshot</snapshot-repository>
-            </properties>
-
-            <distributionManagement>
-                <repository>
-                    <id>central</id>
-                    <name>artifactory.afrozaar.com-releases</name>
-                    <url>${release-repository}</url>
-                </repository>
-                <snapshotRepository>
-                    <id>remote-plugins-snapshot</id>
-                    <name>artifactory.afrozaar.com-snapshots</name>
-                    <url>${snapshot-repository}</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-
-        <profile>
             <id>ssl</id>
             <dependencies>
+                <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
                 <dependency>
                     <groupId>org.apache.httpcomponents</groupId>
                     <artifactId>httpcore</artifactId>
-                    <version>4.4.5</version>
+                    <version>4.4.16</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.httpcomponents</groupId>
@@ -161,7 +137,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -197,7 +173,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.1.3</version>
+            <version>1.2.9</version>
         </dependency>
         <dependency>
             <groupId>org.yaml</groupId>
@@ -223,7 +199,7 @@
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>testcontainers</artifactId>
-            <version>1.7.3</version>
+            <version>1.18.3</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
