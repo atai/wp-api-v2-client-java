@@ -1,9 +1,5 @@
 package com.afrozaar.wordpress.wpapi.v2;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import static org.junit.Assert.fail;
-
 import com.afrozaar.wordpress.wpapi.v2.api.Contexts;
 import com.afrozaar.wordpress.wpapi.v2.config.ClientConfig;
 import com.afrozaar.wordpress.wpapi.v2.config.ClientFactory;
@@ -13,20 +9,21 @@ import com.afrozaar.wordpress.wpapi.v2.model.builder.MediaBuilder;
 import com.afrozaar.wordpress.wpapi.v2.model.builder.PostBuilder;
 import com.afrozaar.wordpress.wpapi.v2.model.builder.TitleBuilder;
 import com.afrozaar.wordpress.wpapi.v2.util.FilenameWrapperByteArrayResource;
-
-import org.springframework.core.io.ByteArrayResource;
-
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.ByteArrayResource;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.wait.strategy.LogMessageWaitStrategy;
 
 import java.time.Instant;
 import java.util.Map;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.fail;
 
 /**
  * @author johan
@@ -37,16 +34,19 @@ public class WordpressClientIT {
 
     @ClassRule
     @SuppressWarnings("unchecked")
-    public static GenericContainer wordpressContainer = new GenericContainer<>("afrozaar/wordpress:latest").withExposedPorts(80).waitingFor(
-            new LogMessageWaitStrategy().withRegEx("[\\s\\S]*INFO success: mysqld entered RUNNING state[\\s\\S]*"));
+    public static GenericContainer wordpressContainer =
+            new GenericContainer<>("afrozaar/wordpress:latest")
+                    .withExposedPorts(80).waitingFor(new LogMessageWaitStrategy()
+                            .withRegEx("[\\s\\S]*INFO success: mysqld entered RUNNING state[\\s\\S]*")
+                    );
 
     private static Wordpress wordpress;
 
     @BeforeClass
     public static void setup() {
         wordpress = ClientFactory.fromConfig(ClientConfig.of("http://" + wordpressContainer.getContainerIpAddress() + ":" + wordpressContainer.getMappedPort(
-                80), "username",
-                                                             "password", false, true));
+                        80), "username",
+                "password", false, true));
     }
 
     @Test
@@ -84,7 +84,7 @@ public class WordpressClientIT {
             wordpress.createMedia(MediaBuilder.aMedia().build(), new FilenameWrapperByteArrayResource(new byte[0], "myfile.png"));
         } catch (RuntimeException e) {
             if (e instanceof NullPointerException) {
-                fail("Did not expect a nullpointer exception");
+                fail("Did not expect a null pointer exception");
             }
         }
     }

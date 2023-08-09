@@ -1,19 +1,15 @@
-# LOOKING FOR A MAINTAINER
-
-
 [ ![Codeship Status for Afrozaar/wp-api-v2-client-java
 ](https://codeship.com/projects/a508d500-9763-0133-6e3a-6aec7e338399/status)](https://www.codeship.io/projects/125775)
-
 
 # WP-API v2 Java Client
 
 A Java client to version 2 of the WP REST API, recently merged into WordPress Core
 
-(Currently coding against **WordPress 4.8.x**)
+(Currently coding against **WordPress 6.3.x**)
 
 ## WordPress Supported Versions
 
-The current 4.8 version supports WordPress 4.6-4.8.
+The current 6.3 version supports WordPress 6.x.
 
 See
 
@@ -23,7 +19,7 @@ See
 
 # Current Development Requirements
 
-* WordPress 4.8.0+ installation
+* WordPress 6.3.0+ installation
 * JSON Basic Authentication (0.1 currently used)
 
 # Implemented
@@ -35,10 +31,6 @@ See
 * Post Terms CRUD
 * Pages CRUD
 * Users
-
-# Work In Progress
-
-    ...
 
 # Not Yet Implemented
 
@@ -92,7 +84,7 @@ The client is flexible enough to build search requests of a particular type, if 
 
 #### Available Filters
 * See [WordPress Codex](https://codex.wordpress.org/Class_Reference/WP_Query) for more filter options
-* Also See [Advanced/Restricted Filtering](#Advanced/Restricted%20Filtering) for configuring restricted options 
+* Also, see [Advanced/Restricted Filtering](#Advanced/Restricted%20Filtering) for configuring restricted options 
 
 ## More Usage Examples
 * For more examples, see [`/src/test/java/com/afrozaar/wordpress/wpapi/v2/ClientLiveTest.java`](src/test/java/com/afrozaar/wordpress/wpapi/v2/ClientLiveTest.java)
