@@ -115,7 +115,6 @@ public class Client implements Wordpress {
         this.permalinkEndpoint = usePermalinkEndpoint;
 
         final ObjectMapper emptyArrayAsNullObjectMapper = Jackson2ObjectMapperBuilder.json()
-                .featuresToEnable(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT)
                 .featuresToEnable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY).build();
 
         List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
